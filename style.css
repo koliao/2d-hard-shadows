@@ -23,6 +23,10 @@ body {
     --text-color: #CEF9DE;
 	color: var(--text-color);
 	font-family: "Ubuntu";
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
 }
 
 .controlItem {

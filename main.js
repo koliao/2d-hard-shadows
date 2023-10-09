@@ -241,7 +241,12 @@ function render() {
 
     const selectedColor = document.getElementById("light-color").value
 	let lightColor = gl.getUniformLocation(lightMask, "light_color");
+
+    const selectedLightSize = Number(document.getElementById("light-size").value)
+	let lightSize = gl.getUniformLocation(lightMask, "light_size");
+
 	gl.uniform3fv(lightColor, new Float32Array(hexToRGBVec(selectedColor)));
+	gl.uniform1f(lightSize, selectedLightSize);
 
 	primitiveType = gl.TRIANGLES;
 	offset = 0;
