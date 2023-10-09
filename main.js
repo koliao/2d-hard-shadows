@@ -105,8 +105,8 @@ gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-let light_x = 0
-let light_y = 0
+let light_x = 200
+let light_y = 200
 
 function drawRect() {
 
