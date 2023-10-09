@@ -47,18 +47,6 @@ const segmentsMesh = segments.flatMap( s => (
     ]
 ) )
 
-function resizeCanvasToDisplaySize(canvas, multiplier) {
-	multiplier = multiplier || 1;
-	const width = canvas.clientWidth * multiplier | 0;
-	const height = canvas.clientHeight * multiplier | 0;
-	if (canvas.width !== width || canvas.height !== height) {
-		canvas.width = width;
-		canvas.height = height;
-		return true;
-	}
-	return false;
-}
-
 let canvas = document.getElementById("drawbox")
 
 let gl = canvas.getContext("webgl", {
@@ -115,7 +103,6 @@ let lightMask = createProgram(gl, lightVertexShader, lightFragmentShader);
 
 gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
-resizeCanvasToDisplaySize(gl.canvas);
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
 let light_x = 0
@@ -198,7 +185,7 @@ function render() {
 	gl.useProgram(program);
 
 	const baseResolution = gl.getUniformLocation(program, "baseResolution");
-	gl.uniform2fv(baseResolution, new Float32Array([800, 800]));
+	gl.uniform2fv(baseResolution, new Float32Array([400, 400]));
 
 	let light = gl.getUniformLocation(program, "light");
 	gl.uniform2fv(light, new Float32Array([light_x, light_y]));
